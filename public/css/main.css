@@ -1,0 +1,218 @@
+.header_slide img.img-responsive {
+    margin: 0px;
+    margin-top: -50px;
+}
+
+.slide1 {
+    background: url(../images/slider1.jpg);  
+}
+.slide2 {
+    background: url(../images/slider2.jpg);
+}
+.slide3 {
+    background: url(../images/slider3.jpg);
+}
+
+.bg {
+    min-height: 61vh;
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center center;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #1d2437;
+    opacity: .4;
+}
+
+.head-text {
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    text-align: center;
+    padding-top: 125px;
+}
+.head-text a {
+    text-decoration: underline;
+    color: #fff;
+    font-size: 12px;
+    font-weight: inherit;
+    letter-spacing: .4px;
+}
+
+@media only screen and (max-width: 482px) {
+    .head-text h1 {
+        font-family: 'Rubik-Bold', sans-serif;
+        font-weight: 900;
+        font-size: 23px;
+    }
+}
+
+.head-text h1 {
+    font-family: 'Rubik-Bold', sans-serif;
+    font-weight: 900;
+}
+
+nav.navbar.navbar-default {
+    margin-bottom: 0px;
+    background-color: #0fe0ba;
+    color: #fff;
+    border: 0px;
+    border-radius: 0px;
+}
+
+.navbar-header {
+    padding-left: 70px;
+}
+
+.navbar-brand.event-title {
+    color: #fff;
+}
+
+span.input-group-addon.search {
+    padding: 0px;
+    border: 0px;
+    border-radius: 0px;
+    background-color: #0fe0ba;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+}
+
+button.btn.btn-default {
+    padding: 9px;
+}
+
+
+
+/*-------------counter---------------*/
+
+.counter {
+  padding-top: 20px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.counter ul li {
+  display: inline-block;
+  width: 13rem;
+}
+
+
+.scroll-up {
+ height: 24%;  
+  width: 100%;
+ overflow: hidden;
+ position: relative;
+ background: #6257bf;
+ color: #fff;
+ border: 1px solid orange;
+}
+.scroll-up p {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateY(100%);
+ -webkit-transform:translateY(100%);    
+ transform:translateY(100%);
+ /* Apply animation to this element */  
+ -moz-animation: scroll-up 5s linear infinite;
+ -webkit-animation: scroll-up 5s linear infinite;
+ animation: scroll-up 5s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes scroll-up {
+ 0%   { -moz-transform: translateY(100%); }
+ 100% { -moz-transform: translateY(-100%); }
+}
+@-webkit-keyframes scroll-up {
+ 0%   { -webkit-transform: translateY(100%); }
+ 100% { -webkit-transform: translateY(-100%); }
+}
+@keyframes scroll-up {
+ 0%   { 
+ -moz-transform: translateY(100%); /* Browser bug fix */
+ -webkit-transform: translateY(100%); /* Browser bug fix */
+ transform: translateY(100%);       
+ }
+ 100% { 
+ -moz-transform: translateY(-100%); /* Browser bug fix */
+ -webkit-transform: translateY(-100%); /* Browser bug fix */
+ transform: translateY(-100%); 
+ }
+}
+
+
+
+.scroll-down {
+ height: 24%;  
+ overflow: hidden;
+ position: relative;
+ background: #6257bf;
+ color: #fff;
+ border: 1px solid orange;
+}
+.scroll-down p {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateY(-100%);
+ -webkit-transform:translateY(-100%);   
+ transform:translateY(-100%);
+ /* Apply animation to this element */  
+ -moz-animation: scroll-down 5s linear infinite;
+ -webkit-animation: scroll-down 5s linear infinite;
+ animation: scroll-down 5s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes scroll-down {
+ 0%   { -moz-transform: translateY(-100%); }
+ 100% { -moz-transform: translateY(100%); }
+}
+@-webkit-keyframes scroll-down {
+ 0%   { -webkit-transform: translateY(-100%); }
+ 100% { -webkit-transform: translateY(100%); }
+}
+@keyframes scroll-down {
+ 0%   { 
+ -moz-transform: translateY(-100%); /* Browser bug fix */
+ -webkit-transform: translateY(-100%); /* Browser bug fix */
+ transform: translateY(-100%);      
+ }
+ 100% { 
+ -moz-transform: translateY(100%); /* Browser bug fix */
+ -webkit-transform: translateY(100%); /* Browser bug fix */
+ transform: translateY(100%); 
+ }
+}
+
+
+.aa{
+
+    text-align: center;
+}
+
+
+.obo{
+    height: 50px;
+    padding: 5px 5px 5px 5px;
+    background-color: #E9EBEE;
+    margin-bottom: 10px;
+   
+}
+.scroll-gen{
+    height:100px;
+    
+}
