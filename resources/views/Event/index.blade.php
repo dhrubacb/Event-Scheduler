@@ -52,7 +52,7 @@ use App\Department;
 						<div class="slide1 bg notice img_sl" data-endtime="{{$top_event->end_time}}" >
 
 							<div class="overlay"></div>
-							<h2 style="">{{$top_event->title}}</h2>
+							<h2 style=""><a href="{{ route('event.details',['id' => $top_event->id ]) }}">{{$top_event->title}}</a></h2>
 
 							<div class="head-text">
 								<div class="col-md-6 col-md-offset-3">

@@ -22,6 +22,8 @@ Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout'])
 Route::get('login', ['as' =>'login','uses' => 'pagecontroller@login']);
 Route::post('dologin', ['as' => 'dologin', 'uses' => 'Auth\AuthController@doLogin']); 
 
+Route::get('event/details/{id}', ['as' => 'event.details', 'uses' => 'HomeController@details']);
+
 Route::post('event/store', ['as' => 'event.store', 'uses' => 'EventController@store']);
 Route::get('event/edit/{id}', ['as' => 'event.update', 'uses' => 'EventController@edit']);
 Route::get('event/list', ['as' => 'event.list', 'uses' => 'EventController@list']);

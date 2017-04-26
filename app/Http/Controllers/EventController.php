@@ -23,6 +23,15 @@ class EventController extends Controller
                 ->with('events',$event)
                 ->with('depts', $dept);
     }
+      public function details($id)
+    {
+       $event_details = DB::table('event')
+                      ->where('id',$id)
+                      ->first();
+         return view('Event.event_details')
+                ->with('event_detail',$event_details)
+                
+    }
      public function store(Request $request)
     {
          

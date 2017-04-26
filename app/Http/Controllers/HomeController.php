@@ -21,6 +21,7 @@ class HomeController extends Controller
      {
      	$event = DB::table('event')
      			        ->get();
+     			        
      	return view('Event.feed')
      			->with('events', $event);
      }
