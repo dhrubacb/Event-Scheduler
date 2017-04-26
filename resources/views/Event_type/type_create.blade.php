@@ -1,12 +1,12 @@
 @extends('Layout.admin')
 @section('header')
 	
-  <div class="col-md-8">
-  <div class="add_ques">
+  <div class="col-md-9">
+  <div class="add_ques" style="margin-left: 50px;">
       
-   <br><hr><br>
+   <br><hr>
 {!! Form::open(array('url' => 'e_type/store',  'method'=>'POST')) !!}
-<h3>Title</h3>
+<h3 class="text-center">Event Types</h3><br>
  <div class="title_form">
         <div class="row">
       <div class="col-md-10">
@@ -22,6 +22,9 @@
        </div>
        {!! Form::close() !!}
        <br><br><hr><br>
+       <div class="row">
+       <div class="col-md-1"> </div>
+       <div class="col-md-8">   
        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -36,11 +39,13 @@
             <tr>
                 <td>{{$eventType->id}}</td>
                 <td>{{$eventType->event_type}}</td>
-                <td><button class="btn btn-danger" onclick="location.href='{{ route('event_type.delete',['id' => $eventType->id ]) }}'">Delete</button></td>
+                <td><button class="btn btn-warning" onclick="location.href='{{ route('event_type.delete',['id' => $eventType->id ]) }}'">Delete</button></td>
             </tr>
             @endforeach
           </tbody>
     </table>
+    </div>
+    </div>
 {!! Form::model($eventType, array('route' => array('event_type.update', $eventType->id), 'method' => 'PUT')) !!}
     <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-sm">

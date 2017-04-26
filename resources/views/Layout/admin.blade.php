@@ -36,22 +36,11 @@
 <nav class="navbar navbar-inverse  navbar-default">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand event-title" href="#"><span class="glyphicon glyphicon-book"></span> Event Scheduler
+          <a class="navbar-brand event-title" href="{{url('index')}}"><span class="glyphicon glyphicon-book"></span> Event Scheduler
         </a>
         </div>
 
-     <ul class="nav navbar-nav navbar-right">
-        <form class="navbar-form ">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit">
-                <i class="glyphicon glyphicon-search"></i>
-              </button>
-            </div>
-        </div>
-      </form>
-        </ul>
+     
 
     @if (Auth::check()) 
     <ul class="nav navbar-nav navbar-right">
@@ -65,21 +54,33 @@
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style="min-width:30px;background:#ffe;">
    
-     
-    <li><a href="logout">Sign out</a></li>
+    <li><a href="{{url('logout')}}">Sign out</a></li>
   </ul>
 </div></li>
     </ul>
     @else
     <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign in</a></li>
+          <li><a href="{{url('login')}}"><span class="glyphicon glyphicon-user"></span> Sign in</a></li>
           
         </ul>
     @endif
+    <ul class="nav navbar-nav navbar-right">
+        <form class="navbar-form ">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit" style="height: 34px;">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+        </div>
+      </form>
+        </ul>
   </div>
+
 </nav>
 
-<div class="col-md-3">
+<div class="col-md-2">
   <aside class="main-sidebar" style="background-color: #1A2226;height: 1000px;margin-top: 0px;">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -100,27 +101,20 @@
       <ul class="sidebar-menu">
         <li class="header" style="color: #eee;">MAIN NAVIGATION</li>
         <li class="active treeview">
-          <a href="#" style="color:#97C7C4;">
+          <a href="#" style="color:#fff;">
             <i class="fa fa-dashboard"></i> <span>Events</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
+           <li class="active" style="color: #dfdfdf;"><a href="{{$na}}event/list"><i class="fa fa-circle-o"></i>Event List</a></li>
             <li style="color: #dfdfdf;"><a href="{{$na}}event/create"><i class="fa fa-circle-o"></i>Create Event</a></li>
-            <li class="active" style="color: #dfdfdf;"><a href="{{$na}}event/list"><i class="fa fa-circle-o"></i>Event List</a></li>
+           
           </ul>
         </li>
-         <li class="treeview">
-          <a href="#" style="color:#97C7C4;">
-            <i class="fa fa-dashboard"></i> <span>Event Type</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li style="color: #dfdfdf;"><a href="index.html"><i class="fa fa-circle-o"></i>Create Event Type</a></li>
-            <li class="active" style="color: #dfdfdf;"><a href="index2.html"><i class="fa fa-circle-o"></i>Event Types</a></li>
+        
+            <li class="active"><a  style="color: #fff;" href="{{url('event/type')}}">  <i class="fa fa-dashboard"></i>Event Types</a></li>
           </ul>
         </li>
     </section>

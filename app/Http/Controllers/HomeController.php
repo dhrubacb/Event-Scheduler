@@ -17,4 +17,11 @@ class HomeController extends Controller
      	return view('Event.index')
      			->with('top_events', $top_event);
      }
+      public function feed()
+     {
+     	$event = DB::table('event')
+     			        ->get();
+     	return view('Event.feed')
+     			->with('events', $event);
+     }
 }

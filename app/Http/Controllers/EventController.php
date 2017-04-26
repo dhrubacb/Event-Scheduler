@@ -42,7 +42,7 @@ class EventController extends Controller
         $exam->counter_type = Input::get('countertype');
         $exam->priority = Input::get('priority');
         $exam->status = '0';
-        $exam->counter_type = Input::get('countertype');
+        $exam->counter_type = '0';
         $exam->priority = Input::get('priority');
         $exam->user_id = '1';
         $exam->offering_dept = '1';

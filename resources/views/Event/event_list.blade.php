@@ -1,6 +1,9 @@
 @extends('Layout.admin')
 @section('header')
+
       <div class="col-md-9">
+      <h4 class="text-center"><b>List of Events</b></h4>
+      <div style="margin-top: 30px;margin-left: 50px;">
       <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -29,7 +32,7 @@
       <div>
         
       </div>
- 
+ </div>
 </div>
 </div>
   </div>

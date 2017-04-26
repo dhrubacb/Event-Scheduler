@@ -121,7 +121,7 @@ public function login(){
 
                // return view('project.userhome');
 
-                return "success";
+                return redirect()->route('event.index');
 
             } else
             {
@@ -142,7 +142,7 @@ public function login(){
 
         $request->session()->flush();
 
-        return redirect()->route('login')
+        return redirect()->route('event.index')
                    ->with('success',"You are successfully logged out.");
         // return 'Logout Panel';
     }

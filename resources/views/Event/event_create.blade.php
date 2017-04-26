@@ -1,7 +1,8 @@
 @extends('Layout.admin')
 @section('header')
-      <div class="col-md-9">
+      <div class="col-md-9" style="margin-left: 50px;">
   <div class="add_ques">
+   <h3 class="text-center">Create Event</h3><hr>
         {!! Form::open(array('url' => 'event/store',   'files' => true , 'method'=>'POST')) !!}
 
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -9,13 +10,13 @@
         <div class="row">
       <div class="col-md-5">
       <div class="ques_title">
-      <h3>Title</h3>
+     
      </div>
      </div>
      </div>
        <div class="title_form">
         <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-10">
        <input type="text" class="form-control" name="title" maxlength="80"  placeholder="Title of event...">
        </div>
        </div>
@@ -24,7 +25,7 @@
        <br><hr>      
        <div class="form-group"">
         <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-10">
        <textarea class="form-control" name="event_detail" rows="7" cols="1" placeholder="Details about event..." id="comment"></textarea>
        </div>
        </div></div>
@@ -32,16 +33,24 @@
       </div><br/>
    <br>
    <hr>
-   <label>Start Time: </label>
+   <div class="row">
+     <col-md-5>
+       <label>Start Time: </label>
    <input type="datetime-local"" name="start_time">
-
-   <label>End Time: </label>
+     </col-md-5>
+     <div class="col-md-5">
+       <label>End Time: </label>
    <input type="datetime-local"" name="end_time">
+     </div>
+   </div>
+   
+
+   
    <hr><hr>
       <div class="csc">
       <div class="row">
       
-      <div class="col-md-3">
+      <!-- <div class="col-md-3">
         <div class="tag_class">
              <h4>Couter Type:<br></h4>
      <select name="countertype">
@@ -49,7 +58,7 @@
   <option value="Count Down">Count Down</option>  
   </select>
         </div>
-        </div>
+        </div> -->
        
   <div class="col-md-3">
                <div class="tag_class">
@@ -61,7 +70,7 @@
   </select>
         </div>   
       </div>
-      <div class="col-md-3">
+      <div class="col-md-5">
                <div class="tag_class">
              <h4>Accepting Department:<br></h4>
      <select name="department">

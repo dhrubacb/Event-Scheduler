@@ -15,7 +15,7 @@ Route::get('/', function () {
 });
 
 Route::get('/index', ['as' => 'event.index', 'uses' => 'HomeController@show']);
-
+Route::get('event/feed', ['as' => 'feed', 'uses' => 'HomeController@feed']);
 Route::get('event/create', ['as' => 'event.create', 'uses' => 'EventController@create']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 
