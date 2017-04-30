@@ -1,3 +1,7 @@
+<?php 
+use App\Event_type;
+use App\Department;
+ ?>
 @extends('Layout.header')
 @section('header')
  <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,12 +30,66 @@
     $('#example').DataTable();
 } );
 </script>
-<div class="container">
-      <h4 class="text-center"><b>List of Events</b></h4>
-      
-        
-      </div>
+<style type="text/css">
+  .backdiv {
+    position: absolute;
+    /* top: 0; */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/Image/{{$event_detail->imagelink}}');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 1500px 750px;
+     background-color: #000;
+    opacity: .3;
 
+  }
+
+  h4{
+    color: #fff;
+    text-align: center;
+  }
+  
+</style>
+<div class="backdiv"></div>
+  <div class="overlay"></div>
+<div class="container">
+      
+     <div class="contains">
+     
+    <div class="head-part">
+      <h3>Details About Event</h3>      
+    </div>
+   
+       <div class="desc-part">
+      <h4 class="textleft">Title: </h4><h4 class="textright">{{$event_detail->title}}</h4> 
+     </div> 
+    
+     <div class="desc-part">
+      <h4 class="textleft">Description: </h4><h4 class="textright">{{$event_detail->description}}</h4> 
+     </div> 
+     <div class="desc-part">
+     <h4>Start Time: </h4><h4>{{$event_detail->start_time}}</h4></div>
+       
+         <h4>End Time: </h4><h4 >{{$event_detail->end_time}}</h4> 
+      
+       
+     </div> 
+     <?php  
+                   $event_type = Event_Type::find($event_detail->event_type);
+                    $department = Department::find($event_detail->accepting_dept);
+                 ?>
+ <div class="desc-part">
+    <h4>Event Type: </h4><h4>{{$event_type->event_type}}</h4>
+         <h4>Department: </h4><h4 >{{$department->dept_name}}</h4> 
+     
+       
+     </div> 
+
+
+      </div>
+</div>
 
 
 

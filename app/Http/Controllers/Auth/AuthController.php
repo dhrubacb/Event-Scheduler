@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use DB;
 use Auth;
 use Hash;
 use App\User;
+use App\UserPending;
 use Validator;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
@@ -14,16 +16,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
+   
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
@@ -70,12 +63,32 @@ class AuthController extends Controller
 
 
 
+ public function Register(){
+        $dept = DB::table('department')->get();
+        $user_type = DB::table('user_type')->get();
+         return view('project.register')
+                ->with('user_types',$user_type)
+                ->with('depts',$dept);
+   }
 
 
+ public function postRegister(Request $request){
+                    $data = new UserPending();
 
+                    $data->name = $request->name;
+                    $data->email = $request->email;
+                    $data->password = Hash::make($request->password);
+                    
+                    $data->contact = $request->contact_no;
+                   
+                    $data->dept_id = $request->department;
+                    $data->user_type = $request->user_type;
+       $data->save();
+       return  Redirect::to('/')->with('message', 'Your request for new account has been sent to Admin');
+}
 public function login(){
     
-        return view('login');
+        return view('project.login');
 }
 
 
@@ -120,8 +133,10 @@ public function login(){
                 
 
                // return view('project.userhome');
-
-                return redirect()->route('event.index');
+                    if(Auth::user()->user_type==2)
+                return redirect()->route('event.mysubs');
+            else
+                return redirect()->route('index');
 
             } else
             {

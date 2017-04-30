@@ -1,6 +1,10 @@
 @extends('Layout.admin')
 @section('header')
-	
+	<?php 
+use \App\User;
+$uI = Auth::id();
+$userRole = User::find($uI);
+?>
   <div class="col-md-9">
   <div class="add_ques" style="margin-left: 50px;">
       
@@ -39,7 +43,8 @@
             <tr>
                 <td>{{$eventType->id}}</td>
                 <td>{{$eventType->event_type}}</td>
-                <td><button class="btn btn-warning" onclick="location.href='{{ route('event_type.delete',['id' => $eventType->id ]) }}'">Delete</button></td>
+                <td>@if($userRole->user_type== 3)<button class="btn btn-warning" onclick="location.href='{{ route('event_type.delete',['id' => $eventType->id ]) }}'">Delete</button>
+                @else<button class="btn btn-default disabled" onclick="">Delete</button> @endif</td>
             </tr>
             @endforeach
           </tbody>

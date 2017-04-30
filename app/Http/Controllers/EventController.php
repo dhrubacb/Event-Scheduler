@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
 use DB;
 use Input;
@@ -23,15 +23,7 @@ class EventController extends Controller
                 ->with('events',$event)
                 ->with('depts', $dept);
     }
-      public function details($id)
-    {
-       $event_details = DB::table('event')
-                      ->where('id',$id)
-                      ->first();
-         return view('Event.event_details')
-                ->with('event_detail',$event_details)
-                
-    }
+     
      public function store(Request $request)
     {
          
@@ -53,8 +45,8 @@ class EventController extends Controller
         $exam->status = '0';
         $exam->counter_type = '0';
         $exam->priority = Input::get('priority');
-        $exam->user_id = '1';
-        $exam->offering_dept = '1';
+        $exam->user_id = Input::get('id');
+        $exam->offering_dept = Input::get('offering_dept');
         $exam->accepting_dept = Input::get('department');
         $exam->event_type = Input::get('event_type');
         $exam->course_id = '1';
@@ -77,7 +69,12 @@ class EventController extends Controller
     }
      public function update_save($id)
    { 
-  
+    if(Input::hasFile('image')){
+     $image = Input::file('image');
+     $imagename = $image->getClientOriginalName();
+     $image->move('Image',$image->getClientOriginalName());
+      
+    }
         $exam = Event::find($id);
         $exam->title =  Input::get('title');
         $exam->description = Input::get('event_detail');
@@ -86,10 +83,11 @@ class EventController extends Controller
         $exam->counter_type = Input::get('countertype');
         $exam->priority = Input::get('priority');
         $exam->status = '0';
+        $exam->imagelink = $imagename;
         $exam->counter_type = Input::get('countertype');
         $exam->priority = Input::get('priority');
-        $exam->user_id = '1';
-        $exam->offering_dept = '1';
+        $exam->user_id = Input::get('id');
+        $exam->offering_dept = Input::get('offering_dept');
         $exam->accepting_dept = Input::get('department');
         $exam->event_type = Input::get('event_type');
         $exam->course_id = '1';
@@ -139,5 +137,12 @@ public function stock(){
          $Event_Type->save();
             return redirect()->route('event.type');
     }
-   
+   public function myevent(){
+    $id = Auth::id();
+    $event = DB::table('event')
+            ->where('user_id',$id)
+              ->get();
+    return view('Event.myevent')
+        ->with('event',$event);
+   }
 }

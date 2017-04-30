@@ -24,7 +24,15 @@ class UsersTableSeeder extends Seeder
 					    			'contact'=>'01760',
 					    			'dept_id'=>'1',
 					    			'user_type'=>'1'
-					    			)
+					    			),
+                                array(
+                                    'name'=>'Masum',
+                                    'email'=>'masum@gmail.com',
+                                    'password'=>  Hash::make('1234'),
+                                    'contact'=>'01760',
+                                    'dept_id'=>'1',
+                                    'user_type'=>'3'
+                                    )
                     ));
 
 		}

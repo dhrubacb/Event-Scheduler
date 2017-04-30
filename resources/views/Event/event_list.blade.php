@@ -1,6 +1,10 @@
 @extends('Layout.admin')
 @section('header')
-
+<?php 
+use \App\User;
+$uI = Auth::id();
+$userRole = User::find($uI);
+?>
       <div class="col-md-9">
       <h4 class="text-center"><b>List of Events</b></h4>
       <div style="margin-top: 30px;margin-left: 50px;">
@@ -19,12 +23,17 @@
         <tbody>
         @foreach($events as $event)
             <tr>
-                <td>{{$event->title}}</td>
+                <td><a href="{{ route('event.details',['id' => $event->id ]) }}">{{$event->title}}</a></td>
                 <td>{{$event->description}}</td>
                 <td>{{$event->start_time}}</td>
                 <td>{{$event->end_time}}</td>
-                <td><button class="btn btn-warning" onclick="location.href='{{ route('event.update',['id' => $event->id ]) }}'">Edit</button></td>
-                <td><button class="btn btn-danger" onclick="location.href='{{ route('event.delete',['id' => $event->id ]) }}'">Delete</button></td>
+                
+                <td>
+                @if($event->user_id==Auth::id())<button class="btn btn-warning" onclick="location.href='{{ route('event.update',['id' => $event->id ]) }}'">Edit</button>
+                @else <button class="disabled btn btn-default" onclick="">Edit</button>@endif</td>
+                <td>@if($event->user_id==Auth::id() || $userRole->user_type== 3)<button class="btn btn-danger" onclick="location.href='{{ route('event.delete',['id' => $event->id ]) }}'">Delete</button>
+                @else<button class="btn btn-default disabled" onclick="">Delete</button>
+                @endif</td>
             </tr>
             @endforeach
           </tbody>

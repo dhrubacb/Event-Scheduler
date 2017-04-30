@@ -34,14 +34,15 @@
    <br>
    <hr>
    <div class="row">
-     <col-md-5>
+     <div class="col-md-5">
        <label>Start Time: </label>
    <input type="datetime-local"" name="start_time">
-     </col-md-5>
+     </div>
      <div class="col-md-5">
        <label>End Time: </label>
    <input type="datetime-local"" name="end_time">
      </div>
+    
    </div>
    
 
@@ -92,7 +93,12 @@
       </div>
 </div>
 <hr><hr>
-
+ <?php
+     $userId = Auth::id();
+     $deptd = \App\User::find($userId)->dept_id;
+     ?>
+     
+<input type="hidden" name="offering_dept" value="{{$deptd}}">
   <div class="form-group">
     {!! Form::label('Event Image') !!}
     <input type="file" name="image">
@@ -102,10 +108,7 @@
 <br>
  
       
-     <?php
-     $userId = Auth::id();
-     
-     ?>
+    
       <input type="hidden" name="id" value="<?php
     echo $userId;
      ?>">

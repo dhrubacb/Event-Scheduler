@@ -14,8 +14,8 @@ use App\User;
         background-color: #E9EBEE;
     }
     .login{
-        width:660px;
-        height: 400px;
+        width:600px;
+        height: 340px;
         padding-left: 150px;
         margin-left: 340px;
         margin-top: 100px;

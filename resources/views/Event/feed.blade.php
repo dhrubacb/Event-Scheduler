@@ -37,22 +37,34 @@
                 <th>Details</th>
                 <th>Start time</th>
                 <th>End Time</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                @if(Auth::check())
+                <th>Subscription</th>
+                @endif
             </tr>
         </thead>
        
         <tbody>
         @foreach($events as $event)
             <tr>
-            <td>{{$event->id}}</td>
+            <td><a href="{{ route('event.details',['id' => $event->id ]) }}">{{$event->id}}</a></td>
                 <td>{{$event->title}}</td>
                 <td>{{$event->description}}</td>
                 <td>{{$event->start_time}}</td>
                 <td>{{$event->end_time}}</td>
-                <td><button class="btn btn-warning" onclick="location.href='{{ route('event.update',['id' => $event->id ]) }}'">Edit</button></td>
-                <td><button class="btn btn-danger" onclick="location.href='{{ route('event.delete',['id' => $event->id ]) }}'">Delete</button></td>
+                <?php $i=0; ?>
+                 @if(Auth::check())
+                  @foreach($sub as $subscription)
+                  @if($event->id == $subscription->event_id)
+                <th><button class="btn btn-danger btn-large" onclick="location.href='{{ route('unsubs',['id' => $subscription->id ]) }}'">Subscribed</button></th><?php $i=1; break;?>
+                @endif
+                @endforeach
+                @if($i==0)
+                <td><button class="btn btn-info btn-lrg" onclick="location.href='{{ route('event.subs',['id' => $event->id ]) }}'">Subscribe</button></td>
+                @endif
+
+                @endif
             </tr>
+            {{$i}}
             @endforeach
           </tbody>
     </table>

@@ -22,10 +22,12 @@ use App\Department;
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="js/moment.js"></script>
+
    <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"> -->
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -41,47 +43,46 @@ use App\Department;
 
 
 
-
 	<section class="header_slide">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="">
 
 					<div class="owl-carousel" id="header_slide">
-					@foreach($top_events as $top_event)
-						<div class="slide1 bg notice img_sl" data-endtime="{{$top_event->end_time}}" >
+						@foreach($top_events as $top_event)
+							<div class="slide1 bg notice img_sl" data-endtime="{{strtotime($top_event->end_time)}}">
 
-							<div class="overlay"></div>
-							<h2 style=""><a href="{{ route('event.details',['id' => $top_event->id ]) }}">{{$top_event->title}}</a></h2>
+								<div class="overlay"></div>
+								<h2 ><a href="{{ route('event.details',['id' => $top_event->id ]) }}" class="top_event">{{$top_event->title}}</a></h2>
 
-							<div class="head-text">
-								<div class="col-md-6 col-md-offset-3">
-									<div class="counter">
-										<ul>
-									        <li><span class="days timenumbers">01</span>
-									          <p class="timeRefDays timedescription">days</p>
-									        </li>
-									        <li><span class="hours timenumbers">00</span>
-									          <p class="timeRefHours timedescription">hours</p>
-									        </li>
-									        <li><span class="minutes timenumbers">00</span>
-									          <p class="timeRefMinutes timedescription">minutes</p>
-									        </li>
-									        <li><span class="seconds timenumbers yellow-text">00</span>
-									          <p class="timeRefSeconds timedescription">seconds</p>
-									        </li>
-								     	</ul>
+								<div class="head-text">
+									<div class="col-md-6 col-md-offset-3">
+										<div class="counter">
+											<ul>
+										        <li><span class="days timenumbers">01</span>
+										          <p class="timeRefDays timedescription">days</p>
+										        </li>
+										        <li><span class="hours timenumbers">00</span>
+										          <p class="timeRefHours timedescription">hours</p>
+										        </li>
+										        <li><span class="minutes timenumbers">00</span>
+										          <p class="timeRefMinutes timedescription">minutes</p>
+										        </li>
+										        <li><span class="seconds timenumbers yellow-text">00</span>
+										          <p class="timeRefSeconds timedescription">seconds</p>
+										        </li>
+									     	</ul>
+										</div>
 									</div>
+									<?php	
+										$event_type = Event_Type::find($top_event->event_type);
+										$department = Department::find($top_event->accepting_dept);
+									 ?>
+									<h4 class="text-center">Event Type:  {{$event_type->event_type}}</h4>	<h4 class="text-center">Department:  {{$department->dept_name}}</h4>	
 								</div>
-								<?php	
-									 $event_type = Event_Type::find($top_event->event_type);
-									 	$department = Department::find($top_event->accepting_dept);
-								 ?>
-								<h4 class="text-center">Event Type:  {{$event_type->event_type}}</h4>	<h4 class="text-center">Department:  {{$department->dept_name}}</h4>	
+								 <img src="Image/{{$top_event->imagelink}}">
 							</div>
-							 <img src="Image/{{$top_event->imagelink}}">
-						</div>
-@endforeach
+						@endforeach
 
 						<!-- <div class="slide3 bg">
 							<div class="overlay"></div>
@@ -101,39 +102,32 @@ use App\Department;
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6">
-				<p class="aa">Past Notice</p>
-					<div class="scroll-gen">
-
-						<div class="obo">
-							<h4>one fsd sg</h4>
+					<div class="p-u-item">
+					<p class="past-notice">Past Notice</p>
+					<div class="kakon owl-theme">
+						@foreach($past_events as $past_event)
+						<div class="item">
+							<h4><a class="top_event" href="{{ route('event.details',['id' => $past_event->id ]) }}">{{$past_event->title}}</a></h4>
+						<h4>End Time: {{$past_event->end_time}}</h4>
 						</div>
-						<div class="obo">
-							<h4>one fsd sg</h4>
+						@endforeach
+					</div>
+				</div>
+				</div>
+				<div class="col-md-6">
+					<div class="p-u-item">
+					<p class="upcoming-notice">Upcoming Notice</p>
+					<div class="kakon owl-theme">
+						@foreach($mid_events as $mid_event)
+						<div class="item-upcoming">
+							<h4><a class="top_event" href="{{ route('event.details',['id' => $mid_event->id ]) }}">{{$mid_event->title}}</a></h4>
+						<h4>End Time: {{$mid_event->end_time}}</h4>
 						</div>
-<div class="obo">
-							<h4>one fsd sg</h4>
-						</div>
-<div class="obo">
-							<h4>one fsd sg</h4>
-						</div>
-<div class="obo">
-							<h4>one fsd sg</h4>
-						</div>
-<div class="obo">
-							<h4>one fsd sg</h4>
-						</div>
-<div class="obo">
-							<h4>one fsd sg</h4>
-						</div>
+						@endforeach
+						
 
 					</div>
 				</div>
-				<div class="col-md-6">
-					<p class="aa">Past Notice</p>
-					<div class="scroll-down">
-						<p>Expaire Notice... </p>
-						<p>asdfsf</p>
-					</div>
 				</div>
 
 			</div>
@@ -145,9 +139,9 @@ use App\Department;
 
 <script src="js/jquery-3.1.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
 	
-	<script src="js/script.js"></script>
+	
+	
 <script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
@@ -155,7 +149,7 @@ use App\Department;
 <script src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js
 "></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="/bootstrap/js/bootstrap.min.js"></script>
+<!-- <script src="/bootstrap/js/bootstrap.min.js"></script> -->
 <!-- FastClick -->
 <script src="/plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -178,8 +172,8 @@ use App\Department;
 	<script src="js/jquery-3.1.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/owl.carousel.min.js"></script>
-	
 	<script src="js/script.js"></script>
+
 
   @section('footer')
    @endsection

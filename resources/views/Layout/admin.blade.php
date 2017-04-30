@@ -46,7 +46,9 @@
     <ul class="nav navbar-nav navbar-right">
      
       <?php $username = Auth::user();?>
-      <li><div class="dropdown">
+     
+     <li><a href="{{url('event/list')}}">DashBoard</a></li>
+ <li><div class="dropdown">
     
   <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="font-size:14px;color:#fff; font-style: italic; background-color:#0FE0BA;margin-top:7px;">
     {{$username->name}}
@@ -64,22 +66,17 @@
           
         </ul>
     @endif
-    <ul class="nav navbar-nav navbar-right">
-        <form class="navbar-form ">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-btn">
-              <button class="btn btn-default" type="submit" style="height: 34px;">
-                <i class="glyphicon glyphicon-search"></i>
-              </button>
-            </div>
-        </div>
-      </form>
-        </ul>
+   
   </div>
 
 </nav>
-
+<?php 
+use \App\User;
+$uI = Auth::id();
+$userRole = User::find($uI);
+use \App\Department;
+    $dept = Department::find($userRole->dept_id); 
+?>
 <div class="col-md-2">
   <aside class="main-sidebar" style="background-color: #1A2226;height: 1000px;margin-top: 0px;">
     <!-- sidebar: style can be found in sidebar.less -->
@@ -91,7 +88,12 @@
         </div>
         <div class="pull-left info">
           <p style="color: #dfdfdf"> {{$username->name}}</p>
-           <a href="#"><i class="fa fa-circle text-success"></i> Admin</a>
+           @if($userRole->user_type== 1)
+          
+           <a href="#"><i class="fa fa-circle text-success"></i> Admin - {{$dept->dept_code}}</a>
+           @elseif($userRole->user_type== 3)
+            <a href="#"><i class="fa fa-circle text-success"></i>Super Admin</a>
+            @endif
         </div>
       </div>
       <!-- search form -->
@@ -110,11 +112,27 @@
           <ul class="treeview-menu">
            <li class="active" style="color: #dfdfdf;"><a href="{{$na}}event/list"><i class="fa fa-circle-o"></i>Event List</a></li>
             <li style="color: #dfdfdf;"><a href="{{$na}}event/create"><i class="fa fa-circle-o"></i>Create Event</a></li>
-           
+            <li style="color: #dfdfdf;"><a href="{{$na}}event/myevent"><i class="fa fa-circle-o"></i>My Events</a></li>
           </ul>
         </li>
         
+         <li class="treeview">
+          <a href="#" style="color:#fff;">
+            <i class="fa fa-dashboard"></i> <span>Users</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+           <li class="active" style="color: #dfdfdf;"><a href="{{url('pending/admin')}}"><i class="fa fa-circle-o"></i>Department Admin</a></li>
+            <li style="color: #dfdfdf;"><a href="{{url('pending/student')}}"><i class="fa fa-circle-o"></i>Student</a></li>
+           
+          </ul>
+        </li>
+
             <li class="active"><a  style="color: #fff;" href="{{url('event/type')}}">  <i class="fa fa-dashboard"></i>Event Types</a></li>
+            <li class="active"><a style="color: #fff;" href="{{url('department')}}">  <i class="fa fa-dashboard"></i>Departments</a></li>
+
           </ul>
         </li>
     </section>
