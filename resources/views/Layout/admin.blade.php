@@ -124,7 +124,9 @@ use \App\Department;
             </span>
           </a>
           <ul class="treeview-menu">
+          @if($userRole->user_type== 3)
            <li class="active" style="color: #dfdfdf;"><a href="{{url('pending/admin')}}"><i class="fa fa-circle-o"></i>Department Admin</a></li>
+           @endif
             <li style="color: #dfdfdf;"><a href="{{url('pending/student')}}"><i class="fa fa-circle-o"></i>Student</a></li>
            
           </ul>

@@ -136,7 +136,7 @@ public function login(){
                     if(Auth::user()->user_type==2)
                 return redirect()->route('event.mysubs');
             else
-                return redirect()->route('index');
+                return redirect()->route('event.index');
 
             } else
             {

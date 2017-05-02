@@ -4,7 +4,12 @@ use App\Department;
  ?>
 @extends('Layout.header')
 @section('header')
+<style type="text/css">
+	.backitem{
 
+
+	}
+</style>
 
 <meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -25,10 +30,7 @@ use App\Department;
   <script src="js/moment.js"></script>
 
    <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-    <!-- <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"> -->
-  <!-- Font Awesome -->
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -103,12 +105,24 @@ use App\Department;
 			<div class="row">
 				<div class="col-md-6">
 					<div class="p-u-item">
+					
 					<p class="past-notice">Past Notice</p>
 					<div class="kakon owl-theme">
+
 						@foreach($past_events as $past_event)
-						<div class="item">
-							<h4><a class="top_event" href="{{ route('event.details',['id' => $past_event->id ]) }}">{{$past_event->title}}</a></h4>
-						<h4>End Time: {{$past_event->end_time}}</h4>
+						
+						<div class="slide1 pn-bg notice pn-img_sl item" data-endtime="{{strtotime($top_event->end_time)}}">
+
+							<div class="overlay"></div>
+							<h2 ><a href="{{ route('event.details',['id' => $top_event->id ]) }}" class="top_event">{{$top_event->title}}</a></h2>
+							<div class="pn-head-text">
+								<?php	
+									$event_type = Event_Type::find($top_event->event_type);
+									$department = Department::find($top_event->accepting_dept);
+								 ?>
+								<h4 class="text-center">Event Type:  {{$event_type->event_type}}</h4>	<h4 class="text-center">Department:  {{$department->dept_name}}</h4>	
+							</div>
+							<img src="Image/{{$top_event->imagelink}}">
 						</div>
 						@endforeach
 					</div>
@@ -120,7 +134,7 @@ use App\Department;
 					<div class="kakon owl-theme">
 						@foreach($mid_events as $mid_event)
 						<div class="item-upcoming">
-							<h4><a class="top_event" href="{{ route('event.details',['id' => $mid_event->id ]) }}">{{$mid_event->title}}</a></h4>
+							<h4><a class="top_event" href="{{ route('event.details',['id' => $mid_event->id ]) }}" style="color:blue;">{{$mid_event->title}}</a></h4>
 						<h4>End Time: {{$mid_event->end_time}}</h4>
 						</div>
 						@endforeach

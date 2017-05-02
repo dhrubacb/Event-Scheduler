@@ -13,6 +13,7 @@
 
 Route::get('/', ['as' => 'event.index', 'uses' => 'HomeController@show']);
 Route::get('event/feed', ['as' => 'feed', 'uses' => 'HomeController@feed']);
+Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 
 Route::get('register',['as' => 'register', 'uses' =>'Auth\AuthController@register']);
 Route::post('postregister',['as' => 'postregister',
@@ -53,8 +54,6 @@ Route::get('event/subscribe/{id}', ['as' => 'event.subs', 'uses' => 'SubsciptCon
 
 Route::any('unsubscribe/{id}', ['as' => 'unsubs', 'uses' => 'SubsciptController@unSubscript']);
 
-Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
-
 });
 
 Route::group(array('middleware' => 'admin'), function()
@@ -73,7 +72,6 @@ Route::get('event/list', ['as' => 'event.list', 'uses' => 'EventController@list'
 
 Route::get('event/create', ['as' => 'event.create', 'uses' => 'EventController@create']);
 
-Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@logout']);
 
 Route::post('event/store', ['as' => 'event.store', 'uses' => 'EventController@store']);
 

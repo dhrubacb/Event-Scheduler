@@ -33,7 +33,6 @@ use App\Department;
 <style type="text/css">
   .backdiv {
     position: absolute;
-    /* top: 0; */
     left: 0;
     width: 100%;
     height: 100%;
@@ -41,15 +40,12 @@ use App\Department;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 1500px 750px;
-     background-color: #000;
+    
     opacity: .3;
 
   }
 
-  h4{
-    color: #fff;
-    text-align: center;
-  }
+  
   
 </style>
 <div class="backdiv"></div>
@@ -62,9 +58,7 @@ use App\Department;
       <h3>Details About Event</h3>      
     </div>
    
-       <div class="desc-part">
-      <h4 class="textleft">Title: </h4><h4 class="textright">{{$event_detail->title}}</h4> 
-     </div> 
+      <h2 class="text-center" style="color: #000;">{{$event_detail->title}}</h2>
     
      <div class="desc-part">
       <h4 class="textleft">Description: </h4><h4 class="textright">{{$event_detail->description}}</h4> 

@@ -37,7 +37,7 @@
 
       <li><a href="{{url('event/myscription')}}">My Subscription</a></li>
 <li><a href="{{url('event/mydept')}}">My Department</a></li>
-
+ <li><a href="{{url('event/feed')}}"><span class="glyphicons glyphicons-book-open"></span> List of Events</a></li>
 @else
 <li><a href="{{url('event/list')}}">DashBoard</a></li>
 @endif

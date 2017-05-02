@@ -70,7 +70,7 @@ use App\User;
      <select name="user_type" class="form-control">
    
   <option value="1">Department Admin</option>
-  <option value="">Student</option>
+  <option value="2">Student</option>
   </select>
 
 

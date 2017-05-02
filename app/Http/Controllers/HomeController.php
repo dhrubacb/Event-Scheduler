@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use DB;
 use App\Http\Requests;
 use Auth;
+use \App\Event;
 class HomeController extends Controller
 {
     // 
      public function details($id)
     {
-       $event_details = DB::table('event')
-                      ->where('id',$id)
-                      ->first();
+       $event_details = Event::find($id);
+      
          return view('Event.event_details')
                 ->with('event_detail',$event_details);
                 
@@ -105,6 +105,7 @@ $ldate = date('Y-m-d H:i:s');
                  ->where('event.end_time','>',$ldate)
                  ->where('event.priority','=',1);
         })
+        ->select('event.*', 'subscription.user_id')
         ->get();
       
        $mid_event = DB::table('event')
@@ -116,6 +117,7 @@ $ldate = date('Y-m-d H:i:s');
                  ->where('event.end_time','>',$ldate)
                  ->where('event.priority','>',1);
         })
+        ->select('event.*', 'subscription.user_id')
         ->get();
        
         $past_event = DB::table('event')
@@ -127,6 +129,7 @@ $ldate = date('Y-m-d H:i:s');
                  ->where('event.end_time','<',$ldate);
                 
         })
+        ->select('event.*', 'subscription.user_id')
         ->get();
        
         return view('Event.mysubscriptions')

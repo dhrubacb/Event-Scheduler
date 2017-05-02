@@ -10,14 +10,12 @@ use App\Department;
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/owl.carousel.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/css/owl.carousel.css">
+  <link rel="stylesheet" href="/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/css/owl.theme.default.min.css">
 
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -137,8 +135,8 @@ use App\Department;
 
 
 
-<script src="js/jquery-3.1.0.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+<script src="/js/jquery-3.1.0.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
   
   
   
@@ -169,10 +167,10 @@ use App\Department;
 <script src="/dist/js/demo.js"></script>
 
 
-  <script src="js/jquery-3.1.0.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/script.js"></script>
+  <script src="/js/jquery-3.1.0.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/owl.carousel.min.js"></script>
+  <script src="/js/script.js"></script>
 
 
   @section('footer')
