@@ -1,5 +1,7 @@
 @extends('Layout.admin')
 @section('header')
+{!! Html::Script('js/ckeditor/ckeditor.js') !!}
+
       <div class="col-md-9" style="margin-left: 50px;">
   <div class="add_ques">
           {!! Form::model($events, array('route' => array('event.update.save', $events->id),    'files' => true ,'method' => 'PUT')) !!}
@@ -30,6 +32,9 @@
        </div></div>
   
       </div><br/>
+       <script>
+           CKEDITOR.replace( 'event_detail');
+        </script>
    <br>
    <hr>
    <label>Start Time: </label>
@@ -40,16 +45,7 @@
    <hr><hr>
       <div class="csc">
       <div class="row">
-      <!-- 
-      <div class="col-md-3">
-        <div class="tag_class">
-             <h4>Couter Type:<br></h4>
-     <select name="countertype">
-  <option value="1">Upcounter</option>
-  <option value="2">Count Down</option>  
-  </select>
-        </div>
-        </div> -->
+    
        
   <div class="col-md-3">
                <div class="tag_class">

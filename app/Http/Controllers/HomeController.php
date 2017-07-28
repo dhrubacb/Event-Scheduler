@@ -34,6 +34,7 @@ $ldate = date('Y-m-d H:i:s');
         $past_event = DB::table('event')
                         ->where('end_time','<',$ldate)
                         ->get();
+                        
      	return view('Event.index')
      			->with('top_events', $top_event)
                 ->with('mid_events', $mid_event)
@@ -67,7 +68,7 @@ $ldate = date('Y-m-d H:i:s');
                         ->where('accepting_dept', $dept)
                         ->where('priority','1')
                         ->where('end_time','>',$ldate)
-                        ->get();
+                        ->get(); 
 
         $mid_event = DB::table('event')
                         ->where('accepting_dept', $dept)

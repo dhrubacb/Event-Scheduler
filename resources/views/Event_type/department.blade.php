@@ -14,7 +14,7 @@ $userRole = User::find($uI);
 
  <div class="title_form">
         <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-9 col-md-offset-1">
        
        
                 <input type="text" class="form-control" name="dept_name" maxlength="80"  placeholder="Add New Event Department...">
@@ -31,8 +31,7 @@ $userRole = User::find($uI);
        <br><br><hr>
       
        <div class="row">
-       <div class="col-md-1"> </div>
-       <div class="col-md-8">   
+       <div class="col-md-9 col-md-offset-1">   
         <h2 class="text-center">Departments</h2><br>
        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
@@ -49,7 +48,7 @@ $userRole = User::find($uI);
                 <td>{{$department->id}}</td>
                 <td>{{$department->dept_name}}</td>
                 <td>{{$department->dept_code}}</td>
-                <td>@if($userRole->user_type== 3)<button class="btn btn-warning" onclick="location.href='{{ route('dept.delete',['id' => $department->id ]) }}'">Delete</button> 
+                <td>@if($userRole->user_type== 3)<button class="btn btn-danger" onclick="location.href='{{ route('dept.delete',['id' => $department->id ]) }}'">Delete</button> 
                 @else<button class="btn btn-default disabled" onclick="">Delete</button> 
                 @endif</td>
             </tr>

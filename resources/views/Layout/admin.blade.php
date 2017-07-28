@@ -76,6 +76,14 @@ $uI = Auth::id();
 $userRole = User::find($uI);
 use \App\Department;
     $dept = Department::find($userRole->dept_id); 
+    use \App\UserPending;
+    $up = DB::table('userpending') 
+            ->count('id'); 
+
+$stu = DB::table('userpending') 
+            ->where('user_type',2)  
+            ->count('id'); 
+      
 ?>
 <div class="col-md-2">
   <aside class="main-sidebar" style="background-color: #1A2226;height: 1000px;margin-top: 0px;">
@@ -84,7 +92,7 @@ use \App\Department;
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="/Image/1.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p style="color: #dfdfdf"> {{$username->name}}</p>
@@ -118,16 +126,20 @@ use \App\Department;
         
          <li class="treeview">
           <a href="#" style="color:#fff;">
-            <i class="fa fa-dashboard"></i> <span>Users</span>
+            <i class="fa fa-dashboard"></i> <span>User Requests</span><span class="label label-primary pull-right" style="margin-top: 2px;">{{$up}}</span>
             <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
+             
             </span>
           </a>
           <ul class="treeview-menu">
           @if($userRole->user_type== 3)
-           <li class="active" style="color: #dfdfdf;"><a href="{{url('pending/admin')}}"><i class="fa fa-circle-o"></i>Department Admin</a></li>
+          <?php $dept = DB::table('userpending') 
+            ->where('user_type',1)  
+            ->count('id'); 
+            ?>
+           <li class="active" style="color: #dfdfdf;"><a href="{{url('pending/admin')}}"><i class="fa fa-circle-o"></i>Department Admin<span class="label label-primary pull-right" style="margin-top: 2px;">{{$dept}}</span></a></li>
            @endif
-            <li style="color: #dfdfdf;"><a href="{{url('pending/student')}}"><i class="fa fa-circle-o"></i>Student</a></li>
+            <li style="color: #dfdfdf;"><a href="{{url('pending/student')}}"><i class="fa fa-circle-o"></i>Student<span class="label label-primary pull-right" style="margin-top: 2px;">{{$stu}}</span></a></li>
            
           </ul>
         </li>

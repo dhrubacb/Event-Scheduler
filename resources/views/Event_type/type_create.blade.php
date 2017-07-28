@@ -27,8 +27,8 @@ $userRole = User::find($uI);
        {!! Form::close() !!}
        <br><br><hr><br>
        <div class="row">
-       <div class="col-md-1"> </div>
-       <div class="col-md-8">   
+    
+       <div class="col-md-10">   
        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -43,7 +43,7 @@ $userRole = User::find($uI);
             <tr>
                 <td>{{$eventType->id}}</td>
                 <td>{{$eventType->event_type}}</td>
-                <td>@if($userRole->user_type== 3)<button class="btn btn-warning" onclick="location.href='{{ route('event_type.delete',['id' => $eventType->id ]) }}'">Delete</button>
+                <td>@if($userRole->user_type== 3)<button class="btn btn-danger" onclick="location.href='{{ route('event_type.delete',['id' => $eventType->id ]) }}'">Delete</button>
                 @else<button class="btn btn-default disabled" onclick="">Delete</button> @endif</td>
             </tr>
             @endforeach

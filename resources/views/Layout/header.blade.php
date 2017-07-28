@@ -3,16 +3,8 @@
 	<title>Event Schedule</title>
 
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <!-- <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"> -->
-  <link rel="stylesheet" href="css/owl.carousel.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+ 
 
-  <link rel="stylesheet" type="text/css" href="css/main.css">
   
 </head>
 <body>

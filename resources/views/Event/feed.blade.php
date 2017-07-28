@@ -64,7 +64,7 @@
 
                 @endif
             </tr>
-            {{$i}}
+           
             @endforeach
           </tbody>
     </table>

@@ -1,5 +1,6 @@
 @extends('Layout.admin')
 @section('header')
+{!! Html::Script('js/ckeditor/ckeditor.js') !!}
       <div class="col-md-9" style="margin-left: 50px;">
   <div class="add_ques">
    <h3 class="text-center">Create Event</h3><hr>
@@ -31,6 +32,9 @@
        </div></div>
   
       </div><br/>
+      <script>
+           CKEDITOR.replace( 'event_detail');
+        </script>
    <br>
    <hr>
    <div class="row">

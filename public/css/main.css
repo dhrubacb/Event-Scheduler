@@ -8,13 +8,13 @@
 }
 .slide2 {
     background: url(../images/slider2.jpg);
-}
+} 
 .slide3 {
     background: url(../images/slider3.jpg);
 }
 
 .bg {
-    min-height: 61vh;
+    min-height: 63vh;
     background-size: cover;
     background-repeat: repeat;
     background-position: center center;
@@ -25,8 +25,17 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #1d2437;
+    /* background-color: #1d2437; */
     opacity: .4;
+}
+.overlay_bel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+   background-color: #000; 
+    opacity: .4;
+    margin-left: -10px;
+     margin-top: -10px;
 }
 
 .head-text {
@@ -49,11 +58,12 @@
     overflow: hidden;
 }
 .img_sl h2 {
-    padding: 50px;
+    padding: 45px;
     text-align: center;
     z-index: 2;
     position: relative;
     color: #eee;
+    font-size: 50px;
 } 
 .img_sl img{
       position: absolute;
@@ -99,6 +109,7 @@ nav.navbar.navbar-default {
     color: #fff;
     border: 0px;
     border-radius: 0px;
+    z-index: 999;
 }
 
 .navbar-header {
@@ -240,7 +251,8 @@ button.btn.btn-default {
     text-align: center;
     color: #fff;
     background-color: #0FE0BA;
-        padding: 5px;
+    padding: 3px;
+    margin: 0;
 }
 
 .upcoming-notice{
@@ -329,8 +341,8 @@ button.btn.btn-default {
 }
 
 .p-u-item {
-    border: 3px solid #c3c0c0;
-   
+    border: 2px solid #c3c0c0;
+   height: 171px;
 }
 
 i.fa.fa-angle-right {
@@ -342,13 +354,30 @@ i.fa.fa-angle-left {
 } 
 
 /*DHruba*/
-.top_event{
-    color:#dfdfdf;
+.top_event1{
+    color:#efefef;
 }
-.top_event:hover{
-    color:#3E8EBC;
+.top_event1:hover{
+    color:#cfcfcf;
 }
 
+
+.top_event{
+    color:#efefef;
+}
+.top_event:hover{
+    color:#fff;
+}
+
+h4.text-center1 {
+    color: #dfdfdf;
+    font-size: 18px;
+}
+
+h4.text-center {
+    color: #252121;
+    font-size: 17px;
+}
 
 /* =-=-=-=-=-= past notice, upcoming notice---=-=-=--=-=-=-= */
 
@@ -366,6 +395,9 @@ i.fa.fa-angle-left {
     z-index: 2;
     position: relative;
     color: #eee;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 24px;
 }
 
 .pn-img_sl img{

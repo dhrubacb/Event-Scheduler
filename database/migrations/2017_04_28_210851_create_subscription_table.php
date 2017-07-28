@@ -16,9 +16,11 @@ class CreateSubscriptionTable extends Migration
             //
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')
+                    ->onDelete('cascade');
             $table->integer('event_id')->unsigned();
-            $table->foreign('event_id')->references('id')->on('event');
+            $table->foreign('event_id')->references('id')->on('event')
+                    ->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

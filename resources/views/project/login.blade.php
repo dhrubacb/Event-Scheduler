@@ -9,6 +9,13 @@ use App\User;
 
 
 
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" href="/css/main.css">
+
   <style type="text/css">
     body{
         background-color: #E9EBEE;
@@ -22,6 +29,14 @@ use App\User;
         background-color: #fff;
     }
 </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" href="/css/main.css">
+
 
 
 
@@ -76,6 +91,14 @@ use App\User;
 </div>
 </div>
 </div>
+
+
+<script src="/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+  <script src="/js/moment.js"></script>
+  <script src="/js/jquery-3.1.0.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
   @section('footer')
    @endsection
      @endsection 
